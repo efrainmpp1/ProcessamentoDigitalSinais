@@ -11,22 +11,17 @@ tempo_segundos_fim_sinal = len(sinal)*periodo
 
 tempo = np.arange(0,tempo_segundos_fim_sinal,periodo) # criando vetor tempo
 
+# plotando o sinal
+plt.title("Sinal de Audio")
+plt.plot(tempo,sinal)
+plt.show()
+
 sinal_invertido = np.flip(sinal) # invertendo sinal de audio
 
 # Gerando um arquivo de audio com o sinal invertido
 sf.write('audio_invertido.wav', sinal_invertido ,taxa_amostragem) 
 
-# plotando os dois sinais
 
-figure , (grafico1,grafico2) = plt.subplots(2,1,sharey=True) # gerando subplots
-
-grafico1.set_title("Sinal de Audio")
-plt.plot(tempo,sinal)
-
-grafico2.set_title("Sinal de Audio Invertido")
-plt.plot(tempo,sinal_invertido)
-
-plt.show()
 
 
 
