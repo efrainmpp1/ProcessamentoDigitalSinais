@@ -23,9 +23,9 @@ sinal_filtrado = np.convolve(sinal , filtro_media_movel , mode='Full')
 sf.write('audio_filtro_media_movel.wav' , sinal_filtrado , taxa_amostragem)
 
 #Como o sinal resultando da convolução gera um sinal adiantado, então teremos que reajustar
-
 sinal_filtrado_reajustado = sinal_filtrado[(N-1):len(sinal_filtrado)]
 
+#plotando grafico dos dois sinais
 figure, axis = plt.subplots(2,1)
 plt.subplots_adjust(wspace=0.25,hspace=0.5)
 axis[0].set_title("Sinal")
