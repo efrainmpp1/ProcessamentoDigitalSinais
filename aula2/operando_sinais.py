@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Configurando os subplots
 figure , axis = plt.subplots(4 , sharex=True)
-plt.subplots_adjust(wspace=0.25,hspace=0.5)
+plt.subplots_adjust(wspace=0.25,hspace=1)
 
 x = np.array([1,2,3,-1,0,1,-1,1]) # criando um sinal qualquer
 n = np.linspace(-4,3,8) # vetor n correspondente ao sinal x
@@ -29,7 +29,7 @@ axis[2].stem(n1,x2)
 
 # 3° passo é comprimir nosso espaço de n em 2
 # Ficaremos por fim com x[-2n-1] = y[n] 
-n2 = n * 1/2
+n2 = n1 * 1/2
 
 axis[3].set_title("Finalizando Operação")
 axis[3].stem(n2,x2)
