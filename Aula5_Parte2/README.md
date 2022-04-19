@@ -5,9 +5,13 @@
 # Metodologia para resolver 
 
 Para calcularmos a TFTD(Transformada de Forurier de Tempo Discreto) de uma entrada com uma exponencial complexa 
+
 ![image](https://user-images.githubusercontent.com/31904108/164036061-1d4c0a75-bfd7-4964-8653-23d08c785537.png)
+
 Utilizamos da saida y[n] como: 
+
 ![image](https://user-images.githubusercontent.com/31904108/164036326-7026aa50-fb14-4fa2-8add-772a107aac7d.png)
+
 Para moldarmos nosso calculo
 
 # Calculos
