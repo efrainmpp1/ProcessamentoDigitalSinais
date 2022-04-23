@@ -15,7 +15,7 @@ Com o Python ja instalado, basta seguir os seguintes passos no terminal:
 - Entrar na pasta do repositório utilizando ```cd ProcessamentoDigitalSinais```
 - Criar uma virtual enviroment ```python -m venv venv```
 - Ativar seu ambiente virtual ```.\venv\Scripts\activate```
-- Baixar as dependencias do arquivo requirements ```pip freeze -r requirements.txt```
+- Baixar as dependencias do arquivo requirements ```pip install -r requirements.txt```
 
 Seguindo esses passos, o ambiente ja está preparado para rodar os arquivos.Basta utilizar o comando ```python <caminho até seu arquivo .py>``` ou ```python3 <caminho até seu arquivo .py>```
 
