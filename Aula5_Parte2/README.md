@@ -21,5 +21,5 @@ Os calculos desenvolvidos nesse exercicio estão armazenados em um PDF nesse rep
 
 Rodando o código python dessa pasta, obtivemos os seguintes graficos :
 
-![image](https://user-images.githubusercontent.com/31904108/164035002-ea08dc46-ce25-4b53-9471-ae5c50ea9b62.png)
+![image](https://user-images.githubusercontent.com/31904108/164911141-095a0bc6-4777-498d-bdee-34b3a4d7cf96.png)
 
