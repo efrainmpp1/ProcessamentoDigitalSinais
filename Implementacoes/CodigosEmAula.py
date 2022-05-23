@@ -22,3 +22,26 @@ class CodeAulas:
       Xn = np.sum(np.sum(sinal * (Wn ** k))) # Calculo do Xn Simplificado
       dft.append(Xn) #Adicionamos o Xn no vetor saida
     return dft
+
+  def circular_convolve(array1,array2):
+    fft1 = np.fft.fft(array1)
+    fft2 = np.fft.fft(array2)
+    circular = np.fft.ifft(fft1*fft2).real
+    return circular
+
+  def linear_convolve_by_fft(array1 , array2):
+    N1 = len(array1)
+    N2 = len(array2)
+  
+    big = N1 if N1 >= N2 else N2
+
+    len_array_convolve = N1 + N2 - 1
+    new_array1 = np.zeros(len_array_convolve)
+    new_array2 = np.zeros(len_array_convolve)
+    for i in range(big):
+      if i < N1 :
+        new_array1[i] = array1[i]
+      if i < N2:
+        new_array2[i] = array2[i]
+
+    return CodeAulas.circular_convolve(new_array1,new_array2)
