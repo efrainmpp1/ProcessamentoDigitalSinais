@@ -45,3 +45,36 @@ class CodeAulas:
         new_array2[i] = array2[i]
 
     return CodeAulas.circular_convolve(new_array1,new_array2)
+
+  def filter_fir_kaiser_low_pass(signal,fs,fc,n_coeficientes,atenuacao):
+    wc = PI*fc/(fs/2)
+
+    M1 = -(n_coeficientes-1)/2
+    M2 = (n_coeficientes-1)/2
+    n1 = np.arange(M1,M2+1)
+
+    hlp = (wc/PI)*(np.sin(wc*n1))/(wc*n1)
+    hlp[n1 == 0] = wc/PI  
+
+    # Kaiser Window
+    r = atenuacao # Controls the dBs below the mainlobe magnitude.
+    beta = 0.1102*(r - 8.7)
+    kaiser_window = np.kaiser(n_coeficientes,beta)
+
+    #Obtain hlp into Kaiser Window
+    hlp_kaiser = hlp * kaiser_window 
+    signal_filtered = np.convolve(signal,hlp_kaiser) #Filtering the signal
+
+    return signal_filtered[n_coeficientes-1:]
+
+  def filter_fir_kaiser_high_pass(signal,fs,fc,n_coeficientes,atenuacao):
+    hlp_kaiser = CodeAulas.filter_fir_kaiser_low_pass(signal,fs,fc,n_coeficientes,atenuacao)
+
+    index_pos_max = np.where(hlp_kaiser == max(hlp_kaiser))[0][0]
+    b_impulse = np.zeros(n_coeficientes)
+    b_impulse[index_pos_max] = 1
+    b_HP = b_impulse - hlp_kaiser
+
+    signal_filtered_hp = np.convolve(signal,b_HP)
+
+    return signal_filtered_hp[n_coeficientes-1:]
