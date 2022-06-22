@@ -78,3 +78,8 @@ class CodeAulas:
     signal_filtered_hp = np.convolve(signal,b_HP)
 
     return signal_filtered_hp[n_coeficientes-1:]
+
+  def anti_aliasing(signal,fs):
+    return CodeAulas.filter_fir_kaiser_low_pass(signal,fs,fs/2,101,100)
+
+  
